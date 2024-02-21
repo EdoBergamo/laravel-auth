@@ -14,24 +14,10 @@ class ProjectsTableSeeder extends Seeder
     public function run()
     {
         Project::create([
-            'title' => 'Progetto 1',
-            'description' => 'Descrizione Progetto 1'
-        ]);
-        Project::create([
-            'title' => 'Progetto 2',
-            'description' => 'Descrizione Progetto 2'
-        ]);
-        Project::create([
-            'title' => 'Progetto 3',
-            'description' => 'Descrizione Progetto 3'
-        ]);
-        Project::create([
-            'title' => 'Progetto 4',
-            'description' => 'Descrizione Progetto 4'
-        ]);
-        Project::create([
-            'title' => 'Progetto 5',
-            'description' => 'Descrizione Progetto 5'
+            'name' => 'html-css-bootstrap-dashboard',
+            'owner_avatar_url' => 'https://avatars.githubusercontent.com/u/147630264?v=4',
+            'html_url' => 'https://github.com/EdoBergamo/html-css-bootstrap-dashboard',
+            'description' => null,
         ]);
     }
 }

@@ -8,7 +8,6 @@
     <h3>{{ $project->title }}</h3>
     <p>{{ $project->description }}</p>
     <p>Creato il <b>{{ $project->created_at->format('d M Y H:i:s') }}</b></p>
-    <p>Aggiornato il <b>{{ $project->updated_at->format('d M Y H:i:s') }}</b></p>
   </div>
 
   <div>
