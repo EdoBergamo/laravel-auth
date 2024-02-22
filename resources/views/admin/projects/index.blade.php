@@ -15,7 +15,7 @@
             <a href="https://github.com/EdoBergamo" class="text-black text-decoration-none" target="_blank">
               <h5 class="card-title" style="font-size: 16px;">EdoBergamo</h5>
             </a>
-            <div class="d-flex">
+            <div class="d-flex ml-auto">
             <a href="{{ route('admin.projects.edit', $project->id) }}" class="btn btn-warning mx-2">Edit</a>
             <form action="{{ route('admin.projects.destroy', $project->id) }}" method="POST" class="d-inline">
               @csrf
@@ -25,7 +25,7 @@
             </div>
           </div>
           <div class="card-body">
-            <a href="{{ $project->html_url }}" class="text-decoration-none" target="_blank">
+            <a href="{{ route('admin.projects.show', $project->id) }}" class="text-decoration-none">
               <h5 class="card-text">{{ $project->name }}</h5>
             </a>
             @if($project->description)
