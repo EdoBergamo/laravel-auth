@@ -15,6 +15,12 @@
             <a href="https://github.com/EdoBergamo" class="text-black text-decoration-none" target="_blank">
               <h5 class="card-title" style="font-size: 16px;">EdoBergamo</h5>
             </a>
+            <a href="/admin/projects/{{$project->id}}/edit">Edit</a>
+            <form action="{{ route('admin.projects.destroy', $project->id) }}" method="POST" class="d-inline">
+              @csrf
+              @method('DELETE')
+              <button type="submit" class="btn btn-danger" onclick="return confirm('Sei sicuro di voler cancellare questo progetto?')">Cancella</button>
+            </form>
           </div>
           <div class="card-body">
             <a href="{{ $project->html_url }}" class="text-decoration-none" target="_blank">
@@ -24,7 +30,7 @@
             <p>{{ $project->description }}</p>
             @endif
 
-            <p>Updated {{ Carbon\Carbon::parse($project->created_at)->diffForHumans()}}</p>
+            <p>Updated {{ Carbon\Carbon::parse($project->updated_at)->diffForHumans()}}</p>
           </div>
         </div>
       </div>
@@ -34,5 +40,9 @@
   @else
   <p class="alert alert-info">Nessun progetto disponibile.</p>
   @endif
+
+  <div class="col-md-4 mb-4">
+    <a href="{{ route('admin.projects.create') }}" class="btn btn-success">Nuovo Progetto</a>
+  </div>
 </div>
 @endsection

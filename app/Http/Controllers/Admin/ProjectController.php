@@ -22,7 +22,7 @@ class ProjectController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.projects.create');
     }
 
     /**
@@ -30,8 +30,24 @@ class ProjectController extends Controller
      */
     public function store(Request $request)
     {
-        //
-    }
+        // dd($request->all());
+
+        $request->validate([
+            'name' => 'required|string',
+            'owner_avatar_url' => 'nullable|string',
+            'html_url' => 'nullable|string',
+            'description' => 'nullable|string',
+        ]);
+    
+        $project = Project::create([
+            'name' => $request->input('name'),
+            'owner_avatar_url' => $request->input('owner_avatar_url'),
+            'html_url' => $request->input('html_url'),
+            'description' => $request->input('description'),        
+        ]);
+    
+        return redirect()->route('admin.projects.index', $project->id)->with('success', 'Progetto creato con successo');
+    }    
 
     /**
      * Display the specified resource.
@@ -55,18 +71,20 @@ class ProjectController extends Controller
     public function update(Request $request, $id)
     {
         $request->validate([
-            'name' => 'required|string|max:255',
+            'name' => 'required|string',
+            'owner_avatar_url' => 'nullable|string',
+            'html_url' => 'nullable|string',
             'description' => 'nullable|string',
         ]);
-
+    
         $project = Project::findOrFail($id);
 
         $project->update([
-            'name'=> $request->input('name'),
+            'name' => $request->input('name'),
             'description' => $request->input('description'),
         ]);
 
-        return redirect()->route('admin.projects.show', $project->id)->with('success','Progetto aggiornato con successo');
+        return redirect()->route('admin.projects.show', $project->id)->with('success', 'Progetto aggiornato con successo');
     }
 
     /**

@@ -13,12 +13,10 @@
       <input type="text" name="name" id="name" class="form-control" value="{{ old('name', $project->name) }}" autocomplete="off" required>
     </div>
 
-    @if ($project->description)
     <div class="form-group">
       <label for="description">Description</label>
-      <input type="text" name="description" id="description" class="form-control" value="{{ old('description', $project->description) }}" autocomplete="off" required>
+      <input type="text" name="description" id="description" class="form-control" value="{{ old('description', $project->description) }}" autocomplete="off">
     </div>
-    @endif
 
     <button type="submit" class="btn btn-primary mt-2">Salva</button>
     <a href="{{ route('admin.projects.show', $project->id) }}" class="btn btn-secondary mt-2">Annulla</a>

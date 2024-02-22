@@ -24,6 +24,9 @@ Route::get('/', function () {
 Route::middleware(['auth'])->group(function () {
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
     Route::resource('admin/projects', ProjectController::class);
+    Route::get('admin/projects', [ProjectController::class, 'index'])->name('admin.projects.index');
+    Route::get('admin/projects/create', [ProjectController::class, 'create'])->name('admin.projects.create');
+    Route::post('admin/projects', [ProjectController::class, 'store'])->name('admin.projects.store');
 });
 
 Route::get('admin/projects/{project}', [ProjectController::class, 'show'])->name('admin.projects.show');

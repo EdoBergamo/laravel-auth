@@ -17,7 +17,7 @@
                     </div>
                     @endif
 
-                    {{ __('You are logged in!') }}
+                    <a href="/admin/projects" class="xtext-black">Grossi Progetti</a>
                 </div>
             </div>
         </div>
