@@ -4,7 +4,9 @@
 <div class="container">
   <div class="card my-4">
     <div class="card-header">
-      <h2 class="mb-0">{{ $project->name }}</h2>
+      <a href="{{ $project->html_url }}" target="_blank" class="text-decoration-none">
+        <h2 class="mb-0">{{ $project->name }}</h2>
+      </a>
     </div>
     
     @if ($project->description)
