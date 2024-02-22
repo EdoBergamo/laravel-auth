@@ -26,4 +26,8 @@ Route::middleware(['auth'])->group(function () {
     Route::resource('admin/projects', ProjectController::class);
 });
 
+Route::get('admin/projects/{project}', [ProjectController::class, 'show'])->name('admin.projects.show');
+Route::get('admin/projects/{project}/edit', [ProjectController::class, 'edit'])->name('admin.projects.edit');
+Route::put('admin/projects/{project}', [ProjectController::class, 'update'])->name('admin.projects.update');
+Route::delete('admin/projects/{project}', [ProjectController::class, 'destroy'])->name('admin.projects.destroy');
 require __DIR__.'/auth.php';
