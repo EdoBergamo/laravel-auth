@@ -15,12 +15,14 @@
             <a href="https://github.com/EdoBergamo" class="text-black text-decoration-none" target="_blank">
               <h5 class="card-title" style="font-size: 16px;">EdoBergamo</h5>
             </a>
-            <a href="/admin/projects/{{$project->id}}/edit">Edit</a>
+            <div class="d-flex">
+            <a href="{{ route('admin.projects.edit', $project->id) }}" class="btn btn-warning mx-2">Edit</a>
             <form action="{{ route('admin.projects.destroy', $project->id) }}" method="POST" class="d-inline">
               @csrf
               @method('DELETE')
               <button type="submit" class="btn btn-danger" onclick="return confirm('Sei sicuro di voler cancellare questo progetto?')">Cancella</button>
             </form>
+            </div>
           </div>
           <div class="card-body">
             <a href="{{ $project->html_url }}" class="text-decoration-none" target="_blank">
