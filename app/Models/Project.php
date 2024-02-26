@@ -12,5 +12,6 @@ class Project extends Model
         'owner_avatar_url',
         'html_url',
         'description',
+        'image'
     ];
 }

@@ -37,6 +37,7 @@ class ProjectController extends Controller
             'owner_avatar_url' => 'nullable|string',
             'html_url' => 'nullable|string',
             'description' => 'nullable|string',
+            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
     
         $project = Project::create([
@@ -45,6 +46,11 @@ class ProjectController extends Controller
             'html_url' => $request->input('html_url'),
             'description' => $request->input('description'),        
         ]);
+
+        if ($request->hasFile('image')) {
+            $imagePath = $request->file('image')->store('project_images', 'public');
+            $project->update(['image' => $imagePath]);
+        }
     
         return redirect()->route('admin.projects.index', $project->id)->with('success', 'Progetto creato con successo');
     }    

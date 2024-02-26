@@ -11,7 +11,8 @@
       <div class="card">
         <div class="card-body">
           <div class="d-flex align-items-center">
-            <img src="{{ $project->owner_avatar_url }}" class="card-img-top rounded-circle" style="width: 40px; height: 40px; margin-right: 10px;" alt="">
+            <!-- <img src="{{ $project->owner_avatar_url }}" class="card-img-top rounded-circle" style="width: 40px; height: 40px; margin-right: 10px;" alt=""> -->
+            <img src="{{ asset('storage/' . $project->image) }}" alt="Project Image" class="img-fluid">
             <a href="https://github.com/EdoBergamo" class="text-black text-decoration-none" target="_blank">
               <h5 class="card-title" style="font-size: 16px;">EdoBergamo</h5>
             </a>
